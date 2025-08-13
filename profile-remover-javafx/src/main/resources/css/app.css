@@ -1,0 +1,6 @@
+.root { -fx-font-family: "Segoe UI"; }
+.text-area { -fx-control-inner-background: #181818; -fx-text-fill: #e0e0e0; }
+.table-view { -fx-background-color: transparent; }
+.button { -fx-background-radius: 8; -fx-padding: 8 14; }
+
+

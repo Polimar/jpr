@@ -1,0 +1,32 @@
+# Maven/Java
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+/.idea/
+*.iml
+/.project
+/.classpath
+/.settings/
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# JavaFX build artifacts
+/build/
+/dist/
+
+# Local tools
+/tools/
+
+# PSTools locale
+/profile-remover-javafx/pstools/

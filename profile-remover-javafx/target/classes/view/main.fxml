@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.profileremover.ui.MainController">
+    <top>
+        <HBox spacing="8" styleClass="toolbar" BorderPane.alignment="CENTER_LEFT">
+            <TextField fx:id="hostField" promptText="Host" />
+            <CheckBox fx:id="includeLoaded" text="Includi caricati" />
+            <CheckBox fx:id="includeSpecial" text="Includi speciali" />
+            <Button fx:id="btnInventory" text="Inventaria" onAction="#onInventory" />
+            <Button fx:id="btnDelete" text="Elimina selezionati" onAction="#onDelete" />
+            <Button fx:id="btnSettings" text="Impostazioni" onAction="#onSettings" />
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="table" />
+    </center>
+    <bottom>
+        <VBox spacing="4">
+            <HBox spacing="8" styleClass="statusbar">
+                <ProgressIndicator fx:id="progress" prefWidth="24" prefHeight="24" visible="false" />
+                <Label fx:id="statusLabel" text="Pronto" />
+            </HBox>
+            <Label text="Log" />
+            <TextArea fx:id="logArea" editable="false" prefRowCount="8" />
+        </VBox>
+    </bottom>
+</BorderPane>
+
+
