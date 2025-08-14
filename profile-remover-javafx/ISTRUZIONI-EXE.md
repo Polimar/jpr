@@ -1,24 +1,29 @@
-# Profile Remover JavaFX - Versione EXE
+# Profile Remover JavaFX - Versione EXE e MSI
 
-## 🚀 Come Usare l'EXE
+## 🚀 Come Usare l'Applicazione
 
-### Opzione 1: App-Image (Raccomandato)
+### Opzione 1: MSI Installer (Raccomandato)
+1. Esegui `Profile-Remover-JavaFX-1.0.0.msi`
+2. Segui l'installazione guidata
+3. L'applicazione sarà disponibile nel menu Start
+
+### Opzione 2: App-Image Standalone
 1. Estrai `Profile-Remover-JavaFX-v1.0.0-EXE.zip`
 2. Esegui `Profile-Remover-JavaFX.bat`
 3. L'applicazione si avvierà automaticamente
 
-### Opzione 2: Wrapper Batch
+### Opzione 3: Wrapper Batch
 1. Assicurati che Java 21 sia installato
 2. Esegui `Profile-Remover-JavaFX-EXE.bat`
 3. L'applicazione si avvierà
 
 ## 📋 Requisiti
 
-- **Java 21** con JavaFX (Eclipse Temurin JDK 21 o Oracle JDK 21)
 - **Windows** (per esecuzione WMI)
 - **Accesso amministrativo** alla macchina remota
+- **Java 21** (solo per Opzione 3, non necessario per MSI e App-Image)
 
-## 🔧 Installazione Java
+## 🔧 Installazione Java (solo per Opzione 3)
 
 Se non hai Java 21:
 1. Scarica Eclipse Temurin JDK 21 da: https://adoptium.net/
@@ -44,7 +49,7 @@ Se non hai Java 21:
 
 ## 🐛 Risoluzione Problemi
 
-### Java non trovato
+### Java non trovato (solo Opzione 3)
 ```
 ERRORE: Impossibile avviare l'applicazione!
 Verifica che Java 21 sia installato e nel PATH.
@@ -67,6 +72,14 @@ Verifica che Java 21 sia installato e nel PATH.
 - **PowerShell**: Calcolo dimensioni e date reali
 - **JavaFX**: Interfaccia moderna e responsive
 - **Logging**: Tracciamento completo operazioni
+- **WiX 6.0**: Creazione installer MSI moderno
+
+## 🛠️ Script di Creazione
+
+- `create-msi-simple.bat` - Crea MSI con WiX 6.0
+- `create-app-image.bat` - Crea app-image standalone
+- `create-exe.bat` - Crea EXE (richiede WiX)
+- `installer.wxs` - File di configurazione WiX 6.0
 
 ## 👥 Autori
 
