@@ -1,30 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.profileremover.ui.MainController">
-    <top>
-        <HBox spacing="8" styleClass="toolbar" BorderPane.alignment="CENTER_LEFT">
-            <TextField fx:id="hostField" promptText="Host" />
-            <CheckBox fx:id="includeLoaded" text="Includi caricati" />
-            <CheckBox fx:id="includeSpecial" text="Includi speciali" />
-            <Button fx:id="btnInventory" text="Inventaria" onAction="#onInventory" />
-            <Button fx:id="btnDelete" text="Elimina selezionati" onAction="#onDelete" />
-            <Button fx:id="btnSettings" text="Impostazioni" onAction="#onSettings" />
-        </HBox>
-    </top>
-    <center>
-        <TableView fx:id="table" />
-    </center>
-    <bottom>
-        <VBox spacing="4">
-            <HBox spacing="8" styleClass="statusbar">
-                <ProgressIndicator fx:id="progress" prefWidth="24" prefHeight="24" visible="false" />
-                <Label fx:id="statusLabel" text="Pronto" />
-            </HBox>
-            <Label text="Log" />
-            <TextArea fx:id="logArea" editable="false" prefRowCount="8" />
-        </VBox>
-    </bottom>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.profileremover.ui.MainController">
+   <top>
+      <VBox spacing="8.0" styleClass="form-panel">
+         <padding>
+            <Insets bottom="8.0" left="16.0" right="16.0" top="16.0" />
+         </padding>
+         <HBox alignment="CENTER_LEFT" spacing="8.0">
+            <Label text="Host remoto:" />
+            <TextField fx:id="hostField" prefWidth="200.0" promptText="192.168.1.100 o hostname" />
+            <CheckBox fx:id="includeLoadedCheckbox" text="Includi caricati" />
+            <CheckBox fx:id="includeSpecialCheckbox" text="Includi speciali" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="inventoryButton" onAction="#onInventory" text="Inventario" styleClass="primary-button" />
+            <Button fx:id="deleteSelectedButton" onAction="#onDeleteSelected" text="Elimina selezionati" styleClass="danger-button" />
+         </HBox>
+      </VBox>
+   </top>
+   <center>
+      <TableView fx:id="profilesTable" prefHeight="500.0">
+         <columns>
+            <TableColumn fx:id="displayNameColumn" prefWidth="180.0" text="Nome Completo" />
+            <TableColumn fx:id="userNameColumn" prefWidth="120.0" text="UserName" />
+            <TableColumn fx:id="localPathColumn" prefWidth="280.0" text="LocalPath" />
+            <TableColumn fx:id="sizeColumn" prefWidth="100.0" text="Dimensione" />
+            <TableColumn fx:id="lastUseColumn" prefWidth="140.0" text="Ultimo Accesso" />
+            <TableColumn fx:id="lastLoginColumn" prefWidth="140.0" text="Ultimo Login" />
+            <TableColumn fx:id="specialColumn" prefWidth="70.0" text="Special" />
+            <TableColumn fx:id="loadedColumn" prefWidth="70.0" text="Loaded" />
+         </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <VBox spacing="4.0" styleClass="status-bar">
+         <padding>
+            <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+         </padding>
+         <Label fx:id="statusLabel" text="Pronto" />
+         <StackPane>
+            <ProgressBar fx:id="progressBar" visible="false" prefWidth="Infinity" prefHeight="25.0" />
+            <Label fx:id="progressLabel" visible="false" text="" style="-fx-text-fill: #000080; -fx-font-weight: bold;" />
+         </StackPane>
+      </VBox>
+   </bottom>
 </BorderPane>
-
-

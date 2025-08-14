@@ -14,9 +14,20 @@ public class MainApp extends Application {
             System.setProperty("LOCALAPPDATA", localAppData.replace('\\', '/'));
         }
         Parent root = FXMLLoader.load(getClass().getResource("/view/main.fxml"));
-        Scene scene = new Scene(root, 1100, 700);
+        Scene scene = new Scene(root, 1200, 600);
         scene.getStylesheets().add(getClass().getResource("/css/app.css").toExternalForm());
         primaryStage.setTitle("Profile Remover");
+        
+        // Aggiungi icona dell'applicazione
+        try {
+            var iconStream = getClass().getResourceAsStream("/icon.png");
+            if (iconStream != null) {
+                primaryStage.getIcons().add(new javafx.scene.image.Image(iconStream));
+            }
+        } catch (Exception e) {
+            System.err.println("Impossibile caricare l'icona: " + e.getMessage());
+        }
+        
         primaryStage.setScene(scene);
         primaryStage.show();
     }

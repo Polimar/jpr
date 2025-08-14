@@ -22,13 +22,25 @@ public class ProcessRunner {
             Consumer<String> onStdout,
             Consumer<String> onStderr
     ) throws IOException, InterruptedException, TimeoutException {
+        return run(command, workingDir, timeout, charset, charset, onStdout, onStderr);
+    }
+
+    public static Result run(
+            List<String> command,
+            File workingDir,
+            Duration timeout,
+            Charset stdoutCharset,
+            Charset stderrCharset,
+            Consumer<String> onStdout,
+            Consumer<String> onStderr
+    ) throws IOException, InterruptedException, TimeoutException {
         ProcessBuilder pb = new ProcessBuilder(command);
         if (workingDir != null) pb.directory(workingDir);
         Process p = pb.start();
 
         ExecutorService ex = Executors.newFixedThreadPool(2);
-        Future<String> outFut = ex.submit(() -> readStream(p.getInputStream(), charset, onStdout));
-        Future<String> errFut = ex.submit(() -> readStream(p.getErrorStream(), charset, onStderr));
+        Future<String> outFut = ex.submit(() -> readStream(p.getInputStream(), stdoutCharset, onStdout));
+        Future<String> errFut = ex.submit(() -> readStream(p.getErrorStream(), stderrCharset, onStderr));
 
         boolean finished = p.waitFor(timeout.toMillis(), TimeUnit.MILLISECONDS);
         if (!finished) {
